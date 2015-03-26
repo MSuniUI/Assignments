@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="./bootstrap.css" media="screen" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <title></title>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#home").click(function () {
+
+                var i = document.getElementById("homeimageid");
+                i.src = "images/home.png";
+            })
+
+            $("#home").focusout(function () {
+
+                var i = document.getElementById("homeimageid");
+                i.src = "images/home-outline.png";
+
+            })
+
+            $("#arrow").click(function () {
+
+                var ip = document.getElementById("arrowimageid");
+
+                var lsrc = ip.src;
+                var rsrc = lsrc.split("images");
+
+                if (rsrc[1] == "/arrow.png") {
+
+                    var i = document.getElementById("arrowimageid");
+                    i.src = "images/arrow-outline.png";
+
+                } else if ($("#arrowimageid").attr("src") == ("images/arrow-outline.png")) {
+                    //$("#arrow").css('color', '#000');
+                    var i = document.getElementById("arrowimageid");
+                    i.src = "images/arrow.png";
+
+
+                }
+
+            });
+
+            $("#allevents").click(function () {
+
+                var i = document.getElementById("alleventsimageid");
+                i.src = "images/allevents.png";
+            })
+
+            $("#allevents").focusout(function () {
+
+                var i = document.getElementById("alleventsimageid");
+                i.src = "images/allevents-outline.png";
+
+            })
+
+
+            $("#myevents").click(function () {
+
+                var i = document.getElementById("myeventsimageid");
+                i.src = "images/myevents.png";
+            })
+
+            $("#myevents").focusout(function () {
+
+                var i = document.getElementById("myeventsimageid");
+                i.src = "images/myevents-outline.png";
+
+            })
+        })
+
+    </script>
+
+    <style type="text/css">
+        .green {
+            background-color: green;
+        }
+    </style>
+
+
+
+</head>
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li id="arrow" class="green"><a href="#"><div id="arrowicon"><img src="images/arrow-outline.png" id="arrowimageid" width="25" height="25" /></div>NearBy</a></li>
+
+                    <li id="home"><a href="#"><div id="homeicon"><img src="images/home-outline.png" id="homeimageid" width="25" height="25" /></div>Home</a></li>
+
+                    <li id="allevents"><a href="#"><img src="images/allevents-outline.png" id="alleventsimageid" width="25" height="25" /><br />All Events</a></li>
+
+                    <li id="myevents"><a href="#"><img src="images/myevents-outline.png" id="myeventsimageid" width="25" height="25" /><br />My Events</a></li>
+
+                    <li><a href="#"><img src="images/more.png" width="25" height="25" /><br />More</a></li>
+                </ul>
+            </div>
+        </div>        
+    </nav>
+    <div class="container">
+
+    </div>
+
+</body>
+</html>
