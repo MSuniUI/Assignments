@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="./bootstrap.css" media="screen" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <title></title>
+
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#home").click(function () {
+
+            var i = document.getElementById("homeimageid");
+            i.src = "images/home.png";
+
+            $("#hc").css({ "color": "black", "font-weight": "bold" });
+        })
+
+        $("#home").focusout(function () {
+
+            var i = document.getElementById("homeimageid");
+            i.src = "images/home-outline.png";
+
+            $("#hc").css({ "color": "#777777", "font-weight": "bold" });
+
+        })
+
+
+
+
+        $("#arrow").click(function () {
+
+            var ip = document.getElementById("arrowimageid");
+
+            var lsrc = ip.src;
+            var rsrc = lsrc.split("images");
+
+            if (rsrc[1] == "/arrow.png") {
+
+                var i = document.getElementById("arrowimageid");
+                i.src = "images/arrow-outline.png";
+
+            } else if ($("#arrowimageid").attr("src") == ("images/arrow-outline.png")) {
+                //$("#arrow").css('color', '#000');
+                var i = document.getElementById("arrowimageid");
+                i.src = "images/arrow.png";
+
+
+            }
+
+        });
+
+
+        $("#allevents").click(function () {
+
+            var i = document.getElementById("alleventsimageid");
+            i.src = "images/allevents.png";
+
+            $("#aec").css({ "color": "black", "font-weight": "bold" });
+
+        })
+
+        $("#allevents").focusout(function () {
+
+            var i = document.getElementById("alleventsimageid");
+            i.src = "images/allevents-outline.png";
+
+            $("#aec").css({ "color": "#777777", "font-weight": "bold" });
+        })
+
+
+        $("#myevents").click(function () {
+
+            var i = document.getElementById("myeventsimageid");
+            i.src = "images/myevents.png";
+
+            $("#mec").css({ "color": "black", "font-weight": "bold" });
+        })
+
+        $("#myevents").focusout(function () {
+
+            var i = document.getElementById("myeventsimageid");
+            i.src = "images/myevents-outline.png";
+
+            $("#mec").css({ "color": "#777777", "font-weight": "bold" });
+        })
+    })
+
+
+    </script>
+
+
+
+    <style type="text/css">
+
+        body {
+            font-family:Helvetica,Arial, sans-serif;
+            font-size:12px;
+        }
+
+        #container {
+            width:100%;
+            margin:auto;
+            height:auto;
+        }
+
+        footer {
+            width:100%;
+            background-color:lightgray;
+            position:fixed;
+            bottom:0;            
+            line-height:10px;
+        }
+      
+        ul li {
+            display:inline-block;
+            width:18%;    
+            text-align:center;
+        }
+
+        ul li img {
+            width:100%;
+        }
+
+        ul li a {                   
+            color: #777777;
+            font-size: 10px;
+            font-weight: bold;                    
+            text-decoration: none;
+        }
+
+        ul li a:focus,
+        ul li a:hover {
+             text-decoration: none;
+             color: #777777;
+        }
+      
+        @media screen and (min-width:320px) {
+
+            footer {                
+                line-height:10px;
+            }
+            ul li img {
+                width:45px;
+            }
+
+        }
+
+     
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <footer>
+            <ul>
+                <li id="arrow" class="green"><a href="#"><img src="images/arrow-outline.png" id="arrowimageid" /><br /><span id="nbc">Nearby</span></a></li>
+
+                <li id="home"><a href="#"><img src="images/home-outline.png" id="homeimageid" /><br /><span id="hc">Home</span></a></li>
+
+                <li id="allevents"><a href="#"><img src="images/allevents-outline.png" id="alleventsimageid" /><br /><span id="aec">AllEvents</span></a></li>
+
+                <li id="myevents"><a href="#"><img src="images/myevents-outline.png" id="myeventsimageid" /><br /><span id="mec">MyEvents</span></a></li>
+
+                <li><a href="#"><img src="images/more.png" width="25" height="25" /><br />More</a></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+</html>
