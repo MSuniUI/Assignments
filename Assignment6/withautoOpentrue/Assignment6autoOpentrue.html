@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.min.js"></script>
+    <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/Smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        
+        body {
+            font-family: Helvetica;
+        }
+
+        #mainsharelink {
+            font-weight:bold;
+            font-size:20px;
+            text-decoration:none;
+            color:black;
+        }
+
+        #container {
+            margin:auto;
+        }
+
+        #dbox {
+            padding:5%;
+            background-color:white;
+            text-align:center;
+            display:none;
+        }
+
+        #cameraimage {
+            float:left;
+            margin-top:5px;
+        }
+
+        #cameramessage {
+            margin-top:5px;
+            padding:0px 10px;
+            float:right;
+            width:300px;
+            text-align:left;
+            color:green;
+        }
+      
+        #sharelinks {
+            clear:both;
+            float:left;
+            margin-bottom:20px;
+            margin-top:20px;
+        }
+        
+        #sharemessage {
+            clear:both;
+            background-color:lightgray;
+            padding:8px 20px;
+            text-align:left;
+        }
+
+       .sharefacebookbutton {
+           margin-top:20px;
+           background-color:blue;
+           color:white;
+       }
+    </style>
+
+    <script type="text/javascript">
+        
+        $(document).ready(function () {
+            
+            $("#dbox").dialog({
+               /*autoOpen:false,*/
+                title:"Congratulations on activating your cameras!",
+                width: 550,
+                height: 410,
+                close: function () {
+                    $("#dbox").dialog("close");
+                }
+                
+            });
+
+            $("#mainsharelink").click(function () {
+                $("#dbox").dialog("open");
+            })
+        })
+
+
+    </script>
+    <title></title>
+</head>
+<body>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    
+      
+    
+    
+    <a href="#" id="mainsharelink">Share</a>
+    <div id="container">
+    <div id="dbox">
+
+        <div id="cameraimage">
+            <img src="./arlocamera.jpg" width="150" height="100"/>
+        </div>
+        <p id="cameramessage">
+                Tell your friends and family how easy it is to set up Arlo cameras or just tell them how cool your new Arlo is
+        </p>
+                
+        <div id="sharelinks">
+                Share via: 
+                <a href="https://developers.facebook.com/docs/plugins/" class="fb-share-button" data-layout="button_count">Facebook</a>
+            <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+                <a class="g-plus" data-action="share" data-annotation="bubble" data-height="15">GoogleShare</a>
+            
+        </div>
+        <div id="sharemessage">Installing Arlocameras is a breeze. Took me less than 10 minutes because it is truely 100% wirefree. #Arlosmarthome http://bit.ly/arloshare</div>
+
+        
+        <div><input type="button" value="SHARE ON FACEBOOK" class="sharefacebookbutton"></div>
+
+    </div>
+        
+</div>
+        
+</body>
+</html>
