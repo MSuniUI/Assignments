@@ -1,0 +1,169 @@
+New features in ES6:
+
+1) let keyword
+
+It is used to declare a variable just like var but with few differences:
+
+- var is scoped to the nearest function block where as let restricts its scope to the current enclosing code block.
+
+- var has it's default hoisting characteristics where all the var declarations are moved to the top of the current scope, not work with 'let', so a let variable cannot be used until after its declaration.
+
+Here is the difference. let is only visible in the for() loop and var is visible to the whole function.
+
+function a() {
+    i is not visible out here
+
+    for( let i = 0; i< 5; i++ ) {
+        i is only visible in here (and in the for() parentheses)
+    };
+
+    i is not visible out here
+};
+
+function b() {
+    j is visible out here
+
+    for( var j= 0; j< 5; j++ ) {
+        j is visible to the whole function
+    };
+
+    j is visible out here
+};
+
+
+2) const is similar to let except once initialized, cannot be changed. 
+const declarations share the same block scoping as let.
+
+3) Destructured Assignment:
+
+Several variables can be initialized in a single statement and the following are equivalent:
+
+Variables can be initialized in one go. 
+The following two lines have the same effect, the first one is using an array pattern.
+
+var [m, d, y] = [3, 14, 1977];
+var m = 3, d = 14, y = 1977;
+
+
+One of the usages of destructured assignment is swapping two variables.
+Usually we would need a temp variable to achieve the swap to achieve this.
+
+x = 3; y = 4; 
+[x, y] = [y, x]
+
+Another advantage is for a function which has multiple return values
+
+function now() { return [4, 6, 2015, 8, 0]; }
+var [m, d] = now(); // m = 4, d = 6
+var [,,year] = now(); // year = 2015
+
+4) Arrow functions:
+
+An arrow function expression (also known as fat arrow function) is used to facilitate simple function declaration. Arrow functions are always anonymous.
+
+regular way:
+var sq = function(x){ return x * x }
+
+same thing using arrow function:
+var sq = x => x * x 
+    
+
+Zero arguments need to be indicated with (). 
+var getName = () => "Es 6";
+
+For only one argument the parentheses are not required. 
+var getValue = foo => 1;
+
+Multiple statements need to be enclosed in braces, {}. 
+var foo = (a,b) => { 
+      let c = a + b; 
+      console.log(a,b,c);        // 1 2 3
+    }
+
+A single expression, however, requires no braces. The expression is also the implicit return value of that function.
+var sum = (a,b) => a + b;
+
+
+5) Default Parameters:
+
+Default parameters are used to assign default values to function parameters, which will be used if the parameter is not formally passed. Using this we can create functions with default parameters.
+
+function greet(name='User'){
+	console.log('Welcome, '+name);
+}
+
+The parameter name holds a default value 'User'.
+
+If you call the function greet() without any argument the default parameter value will be used
+greet(); // Welcome, User
+
+If you call the function greet() with an argument, the argument passed will be used.
+greet('Dahl'); // Welcome, Dahl
+
+
+6) Rest Parameters:
+
+Rest parameters provide a cleaner way of dealing with functions that takes variable number of parameters. When a function with a rest parameter is called a new Array is populated with all the trailing arguments.
+
+The rest parameter is only valid as the last parameter of a function. 
+function logEach(one,two,...things) {
+    things.forEach(function (thing) {
+        console.log(thing);
+    });
+}
+logEach("a", "b", "c","d","e");
+
+Function signature may only include a single rest parameter, and it must be the final formal parameter to that function. Breaking either of those restrictions will cause a syntax error.
+
+7) Spread Operator:
+
+Spread is the opposite of Rest parameters and splits an array into individual parameters.
+
+function example(a, b, c) {
+    console.log(a, b, c); // 1, 2, 3
+}
+var args = [1, 2, 3];
+example(...args);
+
+8) Template Strings:
+
+Template strings are string literals allowing embedded expressions.
+
+Template strings are enclosed by the back-tick (` `) instead of double or single quotes.
+`string text`
+
+Template strings can contain place holders. These are indicated by the Dollar sign and curly braces (${expression}). The expressions in the place holders and the text between them get passed to a function.
+`string text ${expression} string text`
+var name = 'Paul', age = 99;
+var s = `$(name), is apparently $(age) years old`
+
+The syntax can also be used fro simple multi-line strings. Any new line characters inserted in the source are part of the template string.
+`string text line 1
+ string text line 2`
+
+9) Promise:
+
+Promises are a mechanism for handling results (and errors) from asynchronous operations. You can achieve the same thing with callback functions, but promises provide improved readability via method chaining and simple error handling. 
+
+ readFilePromisified('a.html')
+    .then(function (data) { 
+        console.log('success'));
+    })
+    .catch(function (reason) { 
+        console.error('An error occurred', reason);
+    });
+
+There are still callbacks, but they are provided via methods that are invoked on the result then() and catch().
+
+
+
+
+
+
+
+
+
+
+
+ 
+
