@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+
+
+    <style type="text/css">
+        body {
+            font-family:verdana;
+            font-size: 11px;
+            font-weight:bold;
+            
+        }
+
+        
+        
+        .backgndcolor {            
+            background-color:#F7F5F4;
+            
+        }
+        
+        .backgndcolorgray {            
+            background-color:#D6EADB;
+            
+        }
+                
+        .center {
+            margin:0 auto;
+            text-align:center;
+        }
+
+        .colcenter {
+            margin:0 auto;               
+            text-align:center;         
+        }
+
+        .topmargin {
+            margin-top:7px;
+            margin-bottom:-100px;
+        }
+
+        .padding {
+            padding:10% 2% 2% 10%;
+        }
+        
+        .paddingaddon {
+            padding:2% 2% 2% 10%;
+        }
+
+        .categories {
+            line-height:43px;
+            font-weight:bold;
+            color:#E9FFF3;
+            margin-top:25px;
+            border-radius:0px;
+            font-weight:normal;
+            font-size:16px;
+        }
+
+        .infotext {
+            line-height:25px;
+            font-weight:bold;
+            color:black;
+            margin-top:26px;
+            font-size:14px;
+        }
+
+        .regulartext {
+            font-weight:bold;
+            font-size:12px;
+        }
+
+        .eliteandpremierbackgnd {
+            background:#118730;            
+        }
+        
+        .basic {
+            background:#53585F;            
+        }
+   
+        .leftfloat {
+            float:left;
+
+        }
+
+        .rightfloat {
+            float:right;
+        }
+
+        .backtextcolor {
+        	color:#807F7F;
+        }
+
+        .fullwidth {
+        	width:100%;
+        }
+
+        .inline {
+            display:inline-block;
+        }
+
+        .block {
+            display:block;
+        }
+
+        .smalltext {
+            font-size:small;
+        }
+
+        .negativepadding {
+            margin-bottom:-23px;
+        }
+        
+        .negativepaddingprice {
+            margin-bottom:-20px;
+            margin-top:-3px;
+        }
+
+        .leftalign {
+            text-align:left;
+        }
+
+        .vcenter {
+            line-height:35px;
+            margin:0 auto;
+            text-align:center;
+        }
+
+        .reditalic {
+            color:red;
+            font-style:italic;
+        }
+
+        .margins {
+            margin-top:-6px;
+        }
+
+        a, a:visited, a:hover, a:active {
+            text-decoration: none;
+            color: white;
+            font-weight:bold;
+        }
+
+        .topmarginfirst {
+            margin-top:13px;
+        }
+
+        .textpricing {
+            font-size:11px;
+            margin-left:5%;
+        }
+
+        .paddingright2 {
+            padding-right:7px;
+        }
+
+        .paddingright3 {
+            padding-right:40px;
+        }
+
+        .paddingright {            
+            padding-left:22px;
+        }
+    </style>
+
+
+    <title></title>
+</head>
+<body>
+
+    <div class="container-fluid backgndcolorgray">
+
+        <div class="row center">
+            <div class="col-xs-12 colcenter">
+                <div class="topmargin leftfloat backtextcolor  inline">Back</div>
+                <div class="topmargin center inline paddingright">Subscription Options</div>
+            </div>
+        </div>
+          
+    
+        
+        <div class="row">
+            <div class="col-xs-12 colcenter categories eliteandpremierbackgnd negativepadding topmarginfirst">
+                <div class="leftfloat">
+                    <input type="radio" name="service" id="elite" value="elite" />
+                    ELITE
+                </div>
+                <div class="smalltext rightfloat vcenter">
+                    <div class="leftalign negativepaddingprice textpricing">14.99/Month</div>
+                    <div class="leftalign negativepaddingprice textpricing">149.99/Year</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-12 colcenter categories eliteandpremierbackgnd negativepadding">
+                <div class="leftfloat">
+                    <input type="radio" name="service" id="premier" value="premier" />
+                    PREMIER
+                </div>
+                <div class="smalltext rightfloat vcenter">
+                    <div class="leftalign negativepaddingprice textpricing paddingright2">9.99/Month</div>
+                    <div class="leftalign negativepaddingprice textpricing paddingright2">69.99/Year</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-12 colcenter categories basic negativepadding">
+                <div class="leftfloat">
+                    <input type="radio" name="service" id="basic" value="basic" checked="checked"/>
+                    BASIC
+                </div>
+                <div class="smalltext rightfloat leftalign">
+                    <div class="leftalign negativepaddingprice textpricing paddingright3">FREE</div>
+                </div>
+            </div>
+        </div>
+         
+        <div class="row">
+            <div class="col-xs-12 infotext padding">
+                All Camera Types:
+                <div class="regulartext margins">- 1 week of Cloud Recordings</div>
+                <div class="regulartext margins">- Up tp 5 Cameras</div>
+                <div class="regulartext margins">- Standard Support</div>
+            </div>
+        </div>   
+        
+        <div class="row">
+            <div class="col-xs-12 infotext paddingaddon">
+                <div>Available Add-Ons:</div>
+                <div class="regulartext margins">24/7 Cloud DVR for Wired Cameras</div>
+                <div class="regulartext margins reditalic">Not currently part of your subscriptions</div>
+            </div>
+        </div>  
+        
+        <div class="row">
+            <div class="col-xs-12 categories basic colcenter">
+                <div><a href="#">CONTINUE</a></div>
+            </div>
+        </div>
+     
+    </div>
+
+</body>
+</html>
