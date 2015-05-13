@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+
+    <style type="text/css">
+
+        .container {
+            width:100%;
+            margin:auto;            
+            text-align:left;
+        }
+
+        #wrapper {
+            margin-top:160px;
+            border:1px solid gray;
+            padding:5%;
+            background-color:lightblue;
+        }
+
+        .width {
+            width:80%;
+        }
+
+        .space {
+            height:50px;
+        }
+
+        .height {
+            height:20px;
+        }
+
+        .horizontalspacing {
+            margin-left:2%;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+
+        /* Get Input Array */
+        function getinputarray() {         
+            var input = document.getElementById("inarray").value;
+            var inarr = new Array;
+            inarr = input.split(",");
+            return inarr;
+            
+        };
+            
+
+
+        /* Bubble Sort function */
+            function bubbleSorting() {
+                var inarr = getinputarray();
+                
+
+            var swapped;
+            do {
+                swapped = false;
+                for (var i = 0; i < inarr.length - 1; i++) {
+                    if (parseInt(inarr[i]) > parseInt(inarr[i + 1])) {
+                        var temp = inarr[i];
+                        inarr[i] = inarr[i + 1];
+                        inarr[i + 1] = temp;
+                        swapped = true;
+                    }
+                }
+            } while (swapped);
+
+                /* Display sorted result */
+            displayresult(inarr);
+
+
+            }
+
+
+        /* Insertion sort function */
+                function insertionSorting() {
+
+                    var items = getinputarray();
+
+                    var len = items.length,     // number of items in the array
+                        value,                      // the value currently being compared
+                        i,                          // index into unsorted section
+                        j;                          // index into sorted section
+
+                    for (i = 0; i < len; i++) {
+
+                        // store the current value because it may shift later
+                        value = items[i];
+
+                        /*
+                         * Whenever the value in the sorted section is greater than the value
+                         * in the unsorted section, shift all items in the sorted section over
+                         * by one. This creates space in which to insert the value.
+                         */
+                        for (j = i - 1; j > -1 && parseInt(items[j]) > value; j--) {
+                            items[j + 1] = items[j];
+                        }
+
+                        items[j + 1] = value;
+                    }
+
+                  /* Display sorted result */
+                    displayresult(items);
+                }
+
+
+                
+           /* Merge sort function */
+                function mergeSorting() {
+
+                    var items = getinputarray();
+
+                    var output = mergeSort(items);
+
+                    function mergeSort(arr) {
+                        if (arr.length < 2)
+                            return arr;
+
+                        var middle = parseInt(arr.length / 2);
+                        var left = arr.slice(0, middle);
+                        var right = arr.slice(middle, arr.length);
+
+                        return merge(mergeSort(left), mergeSort(right));
+                    }
+
+                    function merge(left, right) {
+                        var result = [];
+
+                        while (left.length && right.length) {
+                            if (parseInt(left[0]) <= parseInt(right[0])) {
+                                result.push(left.shift());
+                            } else {
+                                result.push(right.shift());
+                            }
+                        }
+
+                        while (left.length)
+                            result.push(left.shift());
+
+                        while (right.length)
+                            result.push(right.shift());
+
+                        return result;
+                    }
+
+                    /* Display sorted result */
+                    displayresult(output);
+
+                }
+
+
+        /* Quick Sort function */
+                function quickSorting() {
+
+                    var items = getinputarray();
+                    var output=quicksort(items);
+
+
+                    function quicksort(arr) {
+                        if (arr.length == 0)
+                            return [];
+
+                        var left = new Array();
+                        var right = new Array();
+                        var pivot = arr[0];
+
+                        for (var i = 1; i < arr.length; i++) {
+                            if (parseInt(arr[i]) < parseInt(pivot)) {
+                                left.push(arr[i]);
+                            } else {
+                                right.push(arr[i]);
+                            }
+                        }
+
+                        return quicksort(left).concat(pivot, quicksort(right));
+                    }
+
+                    /* Display sorted result */
+                    displayresult(output);
+                }
+
+
+
+        /* Display Result */
+            function displayresult(inarr) {
+                document.getElementById("outarray").value = inarr;
+            }
+
+        /* Clear Result */
+            function clearResult(inarr) {
+                document.getElementById("outarray").value = "";
+            }
+
+    </script>
+    
+    <title></title>
+</head>
+<body>
+<div class="container">
+
+    <div id="wrapper">
+        <div class="space">
+            <input type="text" id="inarray" class="height width" placeholder="Enter numbers to be sorted seperated by commas" />
+        </div>
+
+        <div class="space">
+            <input type="button" id="sort" value="Bubble Sort" class="horizontalspacing" onclick="bubbleSorting();" />
+            <input type="button" id="sort" value="Insertion Sort" class="horizontalspacing" onclick="insertionSorting();" />
+            <input type="button" id="sort" value="Merge Sort" class="horizontalspacing" onclick="mergeSorting();" />
+            <input type="button" id="sort" value="Quick Sort" class="horizontalspacing" onclick="quickSorting();" />
+        </div>
+
+        <div class="space">
+            <input type="text" id="outarray" class="height width" disabled="disabled" />
+        </div>
+
+        <div class="space">
+            <input type="button" id="clearresult" value="Clear Result" onclick="clearResult();" />
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
