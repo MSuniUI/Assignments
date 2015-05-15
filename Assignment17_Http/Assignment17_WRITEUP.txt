@@ -1,0 +1,77 @@
+
+HTTP - is a stateless Request - Response protocol between Client and Server. An HTTP client sends a reques message to an HTTP server and the server in turn, returns a response message back to the client. HTTP client can be web browser and HTTP server can be an application hosted on the web server. So when we issue a URL from browser to get a web resource using HTTP, the browser turns the URL into a request message and sends it to the HTTP server. The HTTP server interprets the request message, and returns you an appropriate response message, which is either the resource you requested or an error message.
+
+GET and POST are two commonly used HTTP methods for exchanging the information between client and server.
+
+GET - The GET method is the simplest type of HTTP request method the browser uses each time you click a link or type a URL into the address bar. It instructs the server to transmit the data identified by the URL back to the client. So, it is mainly used to retrieve information from the given server using a given URL. Query strings (name/value pairs) is sent in the URL of a GET request.
+
+Some of the features of GET request are:
+GET requests
+- can be cached
+- remain in the browser history
+- can be bookmarked
+- should never be used when dealing with sensitive data
+- have length restrictions
+- should be used only to retrieve data
+
+POST - The POST method is used to send data to the server. Query strings (name/value paris) is sent in the HTTP message body of a POST request.
+
+Some of the features of POST request are:
+POST requests
+- are never cached
+- do not remain in the browser history
+- cannot be bookmarked
+- have no restrictions on data length
+
+So, thought GET requests are little bit faster, POST requests are safer because data is not displayed in the URL and parameters are not stored in browser history.
+
+So, it is up to our requirement to decide which one to use.
+
+So, HTTP basically works on a request and response 
+basis and web applications have a great deal of code that executed as a part of the HTTP request/response code. This works for faster tasks, but for tasks that involves submission and processing of data, which might take little longer to be executed and processed before it can be sent back to the client, that's when this synchronous behavior will pose trouble. Until we get response from the server, our application is at halt doing nothing, just waiting for the response from the server, which sometimes can make applications hang altogether. That's where Asynchronous programming comes into picture.
+
+Asynchronous programming is possible using XMLHTTPRequest object(XHR). It is used to exchange data with the server behind the scenes(while data is being fetched from the server, the rest of the program will continue getting executed, without having to wait for the response from the server) and this is achieved by events and callbacks. This means that it is possible to update parts of a web page, without reloading the whole page as opposed to classic web pages, must reload the entire page if the content should change.
+
+AJAX - Asynchronous Javascript and XML is one the techniques which uses Asynchronous programming concept. The keystone of AJAX is the XMLHTTPRequest object.
+
+So, to exchange data with server, we need to use XMLHTTPRequest object. And for that we need to first create XMLHTTPRequest object. All modern browsers support XMLHTTPRequest object but IE5 and IE6 use an ActiveXObject, and taking that into consideration, we need to create XMLHTTPRequest object.
+
+var xmlhttp;
+ if (window.XMLHttpRequest)
+   {// code for IE7+, Firefox, Chrome, Opera, Safari
+   xmlhttp=new XMLHttpRequest();
+   }
+ else
+   {// code for IE6, IE5
+   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+   }
+
+
+And next step is to send request to server. And it is done by using open() and send() methods of the xmlhttp object which is created in the previous step.
+
+xmlhttp.open(method,url,async), where method is either GET or POST, url is the location of the file on the server and async will take either true(for asynchronous operation) or false(for synchronous operation).
+
+xmlhttp.send().
+
+And to get the response from the server, we can use the responseText(get the response data as a string) or responseXML(get the response data as XML data) property of the XMLHTTPRequest object. And to perform some actions based on the response, we have onreadystatechange event and readyState property of the XMLHTTPRequest object, using which we can specify a function to execute when the response is ready in the onreadystatechange event:
+
+xmlhttp.onreadystatechange=function()
+   {
+   if (xmlhttp.readyState==4 && xmlhttp.status==200)
+     {
+     document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+     }
+   }
+
+or we can use callback function instead.
+
+When it comes to AJAX, jQuery provides several methods for AJAX functionality. With jQuery AJAX methods, we can request text, HTML,XML or JSON from a remote server using both HTTP Get and HTTP Post -  and we can load the external data directly into the selected HTML elements of web page. Without jQuery, writing AJAX code was a little tricky, because different browsers have different syntax for AJAX implementation. And also we needed to explicitly create and send XMLHTTPRequest object, but if we use jQuery, it is the one who is going to take care of everything.
+
+jQuery's load() method can be used to load data from the server and put the returned data into the selected element.
+
+$selector.load(URL,data,callback), where URL is location of the file we need to load, data is optional parameter that specifies a set of querystring key/value pairs to send along with the request, callback also is an optional parameter that specifies the name of the function to be executed after the load() method is completed.
+
+jQuery get() and post() methods are used to request data from the server with HTTP GET or POST request.
+$.get(URL,callback) or $.post(URL,data,callback)
+
+Angular Explanation:

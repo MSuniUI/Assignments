@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <style type="text/css">
+        .container {
+            width:60%;
+            margin:auto;            
+            text-align:left;
+        }
+
+        #wrapper {
+            margin-top:100px;
+            border:1px solid gray;
+            padding:5%;
+            background-color:lightblue;
+        }
+
+         .space {
+            height:50px;
+        }
+
+         .margin {
+             margin-top:30px;
+         }
+
+    </style>
+
+    <script type="text/javascript">
+
+        function loadTextFile() {
+
+            var fname = document.getElementById("firstname").value;
+            var lname = document.getElementById("lastname").value;
+            
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("displaygreetingfromjavascript").innerHTML = xmlhttp.responseText;
+                }
+            }
+
+            xmlhttp.open("POST", "jquery_post.asp", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send("firstname="+fname+"   "+lname);
+
+        }
+
+
+        $(document).ready(function () {
+            
+            $("#submitbutton").click(function () {
+
+                var fname = $("#firstname").val();
+                var lname = $("#lastname").val();
+
+                $.post("jquery_post.asp",
+                    
+                    {firstname:fname,lastname:lname},
+
+                    function (response, status) {
+                        
+                        $("#displaygreeting").text(response);
+                    })
+
+            })
+
+        })
+
+    </script>
+
+
+</head>
+<body>
+    <div class="container">
+        <div id="wrapper">
+                <div id="firstnamediv" class="space">
+                    <lable>First Name</lable>
+                    <input type="text" name="firstname" id="firstname" placeholder="First Name" />
+                </div>
+                <div id="lastnamediv" class="space">
+                    <lable>Last Name</lable>
+                    <input type="text" name="lastname" id="lastname" placeholder="Last Name" />
+                </div>
+            <div>
+                <input type="button" value="Click this button to send data to asp file using javascript and XMLHTTPRequest object" onclick="loadTextFile()" />
+            </div>
+            <div>
+                <button id="submitbutton" class="margin">Click this button to send data to asp file using jquery $.post</button>
+            </div>
+
+                <div id="displaygreetingfromjavascript" class="margin"></div>
+            <div id="displaygreeting" class="margin"></div>
+        </div>
+    </div>
+</body>
+</html>
