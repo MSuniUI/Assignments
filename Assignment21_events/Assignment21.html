@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" />    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+
+    <style type="text/css">
+
+        body {
+            font-family:verdana;
+            font-size: 11px;
+            font-weight:bold;
+            
+        }
+      
+        .topmargin {
+            margin-top:20px;
+        }
+             
+        .bottommargin {
+            margin-bottom:100px;
+        }
+         
+        .underline {
+            text-decoration:underline;
+            color:green;
+        }
+
+        .red {
+            color:red;
+        }
+
+        .black {
+            color:black;
+        }
+    </style>
+    
+    
+    <script type="text/javascript">
+    
+        $(document).ready(function () {
+
+            /* part a of assignment */
+
+            $("#displaybrowserinfo").html(navigator.appName);
+            $("#displayscreenheightinfo").html(window.screen.availHeight + " px");
+            $("#displayscreenwidthinfo").html(window.screen.availWidth + " px");
+            $("#displaylastmodifiedinfo").html(document.lastModified);
+
+ 
+            /* part b of assignment */
+
+            var fimg;
+
+            $("#firstimage").on({
+
+                mouseenter: function () {
+                    fimg = $("#firstimage").attr("src");
+                    $("#firstimage").attr("src", "images/home.png");
+
+                },
+                mouseleave: function () {
+
+                    $("#firstimage").attr("src", fimg);
+                }
+            })
+
+
+            /* part c of assignment */
+             
+            var cfimg, csimg, ctimg;
+            $("img").mouseenter(function (event) {
+                
+                var e = event.target.id;
+                
+                if (e == "cfirstimage") {
+                    
+                    cfimg = $("#cfirstimage").attr("src");
+                    $("#cfirstimage").attr("src", "images/arrow-outline.png");
+                }
+                else if (e == "csecondimage") {
+                    
+                    csimg = $("#csecondimage").attr("src");
+                    $("#csecondimage").attr("src", "images/myevents-outline.png");
+
+                }
+                else if (e == "cthirdimage") {
+                    
+                    ctimg = $("#cthirdimage").attr("src");
+                    $("#cthirdimage").attr("src", "images/allevents-outline.png");
+
+                }
+                
+            })
+
+
+            $("img").mouseleave(function (event) {
+
+                var e = event.target.id;
+
+                if (e == "cfirstimage") {
+
+                    $("#cfirstimage").attr("src", cfimg);
+
+                }
+                else if (e == "csecondimage") {
+
+                    $("#csecondimage").attr("src", csimg);
+
+                }
+                else if (e == "cthirdimage") {
+
+                    $("#cthirdimage").attr("src", ctimg);
+
+                }
+
+            })
+
+              
+        })
+
+            
+    </script>
+
+    <title></title>
+</head>
+<body>
+
+    <div class="container center topmargin">
+
+        <div class="underline">below is the part a of the assignment</div>
+        <div class="row center topmargin bottommargin">
+            <div class="col-xs-4 center">
+                <div class="black">Browser being used is: <span id="displaybrowserinfo" class="red"></span></div>
+                <div class="black">User's Screen Height is : <span id="displayscreenheightinfo" class="red"></span></div>
+                <div class="black">User's Screen Height is : <span id="displayscreenwidthinfo" class="red"></span></div>
+                <div class="black">User's Screen Width is : <span id="displaylastmodifiedinfo" class="red"></span></div>
+            </div>
+        </div>
+
+
+        <div class="underline">below is the part b of the assignment</div>
+        <div class="row center topmargin bottommargin">
+            <div class="col-xs-4 center">
+                <img src="images/home-outline.png" width="100" height="100" id="firstimage"/>
+            </div>
+        </div>
+
+
+        <div class="topmargin underline">below is the part c of the assignment</div>
+        <div class="row center topmargin">
+            <div class="col-xs-4 center topmargin">
+                <img src="images/arrow.png" width="100" height="100" id="cfirstimage" />
+            </div>
+            <div class="col-xs-4 center topmargin">
+                <img src="images/myevents.png" width="100" height="100" id="csecondimage" />
+            </div>
+            <div class="col-xs-4 center topmargin">
+                <img src="images/allevents.png" width="100" height="100" id="cthirdimage" />
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
